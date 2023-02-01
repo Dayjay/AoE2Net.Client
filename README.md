@@ -34,6 +34,9 @@ playerList.Add("78901");
 playerList.Add("234567");
 
 var matchesHistory = await aoe2NetClient.GetPlayersMatchHistoryAsync(100, profileIds: playerList);
+
+//get ongoing matches
+var ongoingMatches = await aoe2NetClient.GetOngoingMatchesAsync();
 ```	
  
  ## Todo

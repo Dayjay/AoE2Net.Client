@@ -228,13 +228,35 @@ namespace AoE2Net.Client
             {
                 url = string.Format("{0}&count={1}", url, start);
             }
-            Console.Write(url);
+            
             var response = await httpClient.GetAsync(url);
 
             if (response.IsSuccessStatusCode)
             {
                 var responseString = await response.Content.ReadAsStringAsync();
                 return JsonSerializer.Deserialize<List<LeaderboardMatch>>(responseString);
+            }
+            else
+            {
+                throw new AoE2NetClientException("AoE2.Net API did not return a valid response.");
+            }
+        }
+
+        /// <summary>
+        /// Request a list of ongoing matches.
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="AoE2NetClientException"></exception>
+        public async Task<Ongoing> GetOngoingMatchesAsync()
+        {
+            var url = string.Format("/matches/aoe2de/ongoing?_={0}", DateTimeOffset.Now.ToUnixTimeMilliseconds());
+
+            var response = await httpClient.GetAsync(url);
+
+            if (response.IsSuccessStatusCode)
+            {
+                var responseString = await response.Content.ReadAsStringAsync();
+                return JsonSerializer.Deserialize<Ongoing>(responseString);
             }
             else
             {
