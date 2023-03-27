@@ -10,7 +10,7 @@ namespace AoE2Net.Client.Classes
     public class LeaderboardMatchPlayer
     {
         [JsonPropertyName("profile_id")]
-        public int ProfileId { get; set; }
+        public int? ProfileId { get; set; }
 
         [JsonPropertyName("name")]
         public string Name { get; set; }
