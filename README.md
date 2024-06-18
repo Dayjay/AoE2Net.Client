@@ -1,5 +1,8 @@
 # AoE2Net.Client
 
+> [!WARNING]  
+> AoE2.net is dead
+
 <p align="center">
   <a href="https://www.nuget.org/packages/AoE2Net.Client/">
     <img src="https://img.shields.io/nuget/v/AoE2Net.Client"/>
@@ -7,7 +10,7 @@
 </p>
 
  A C# Wrapper for the AoE2.NET API
- 
+
  ## Usage
  
 ```c#
